@@ -3,14 +3,14 @@ import Article from './article'
 import useAccordion from '../custom-hooks/accordion'
 
 export default function ArticleList({ articles }) {
-  const { openArticleId, toggleOpenArticle } = useAccordion()
+  const { openItemId, toggleOpenItem } = useAccordion()
 
   const articleItems = articles.map((article) => (
     <li key={article.id}>
       <Article
         article={article}
-        onBtnClick={toggleOpenArticle(article.id)}
-        isOpen={article.id === openArticleId}
+        onBtnClick={toggleOpenItem(article.id)}
+        isOpen={article.id === openItemId}
       />
     </li>
   ))
