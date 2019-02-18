@@ -32,7 +32,7 @@ class CommentList extends Component {
     if (!isOpen) return null
 
     const body = comments.length ? (
-      <ul>
+      <ul ref={this.setListRef}>
         {comments.map((comment) => (
           <li key={comment.id}>
             <Comment comment={comment} />
@@ -44,6 +44,12 @@ class CommentList extends Component {
     )
 
     return <div>{body}</div>
+  }
+
+  setListRef = (ref) => {
+    console.log('---', ref)
+
+    this.list = ref
   }
 }
 /*
