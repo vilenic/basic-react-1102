@@ -1,24 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
+import CommentList from './comment-list-hooks'
 
-class Article extends Component {
-  render() {
-    const { article, onBtnClick, isOpen } = this.props
-    const btnText = isOpen ? 'close' : 'open'
+function Article(props) {
+  const { article, isOpen, onBtnClick } = props
+  return (
+    <div>
+      <h3>{article.title}</h3>
+      <button onClick={onBtnClick}>{isOpen ? 'close' : 'open'}</button>
+      {getBody(props)}
+    </div>
+  )
+}
 
-    return (
-      <div>
-        <h2>{article.title}</h2>
-        <button onClick={onBtnClick}>{btnText}</button>
-        {this.getBody()}
-      </div>
-    )
-  }
+function getBody({ isOpen, article }) {
+  if (!isOpen) return null
 
-  getBody() {
-    const { isOpen, article } = this.props
-    if (!isOpen) return null
-    return <section>{article.text}</section>
-  }
+  return (
+    <section>
+      {article.text}
+      <CommentList comments={article.comments} />
+    </section>
+  )
 }
 
 export default Article
