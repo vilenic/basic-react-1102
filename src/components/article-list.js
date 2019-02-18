@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Article from './article'
 import useAccordion from '../custom-hooks/accordion'
 
@@ -16,6 +17,10 @@ export default function ArticleList({ articles }) {
   ))
 
   return <ul>{articleItems}</ul>
+}
+
+ArticleList.propTypes = {
+  articles: PropTypes.array.isRequired
 }
 
 //import AccodrionComponent from './accordion-component'

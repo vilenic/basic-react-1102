@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentList from './comment-list-hooks'
+import CommentList from './comment-list'
 
 function Article(props) {
   const { article, isOpen, onBtnClick } = props
