@@ -47,8 +47,6 @@ class CommentList extends Component {
   }
 
   setListRef = (ref) => {
-    console.log('---', ref)
-
     this.list = ref
   }
 }

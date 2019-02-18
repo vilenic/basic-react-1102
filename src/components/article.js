@@ -14,7 +14,9 @@ class Article extends Component {
     return (
       <div>
         <h3>{article.title}</h3>
-        <button onClick={onBtnClick}>{isOpen ? 'close' : 'open'}</button>
+        <button onClick={onBtnClick} className="test--article__btn">
+          {isOpen ? 'close' : 'open'}
+        </button>
         {this.getBody()}
       </div>
     )
@@ -25,7 +27,7 @@ class Article extends Component {
     if (!isOpen) return null
 
     return (
-      <section>
+      <section className="test--article__body">
         {article.text}
         <CommentList comments={article.comments} ref={this.setCommentsRef} />
       </section>
@@ -34,8 +36,8 @@ class Article extends Component {
 
   setCommentsRef = (ref) => {
     //      window.comments = ref
-    console.log('---', 'comments', ref)
-    console.log('---', 'comments DOM', findDOMNode(ref))
+    //    console.log('---', 'comments', ref)
+    //    console.log('---', 'comments DOM', findDOMNode(ref))
   }
 }
 
