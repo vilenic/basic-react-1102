@@ -6,7 +6,7 @@ class Article extends Component {
   render() {
     const { article, isOpen, onBtnClick } = this.props
     return (
-      <div>
+      <div className="test--article__container">
         <h3>{article.title}</h3>
         <button onClick={onBtnClick} className="test--article__btn">
           {isOpen ? 'close' : 'open'}

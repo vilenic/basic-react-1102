@@ -10,15 +10,11 @@ class CommentList extends Component {
     toggleOpen: PropTypes.func
   }
 
-  static defaultProps = {
-    comments: []
-  }
-
   render() {
     const { isOpen, toggleOpen } = this.props
     const text = isOpen ? 'hide comments' : 'show comments'
     return (
-      <div>
+      <div className="test--comment-list__container">
         <button className="test--comment__btn" onClick={toggleOpen}>
           {text}
         </button>
@@ -31,19 +27,20 @@ class CommentList extends Component {
     const { comments, isOpen } = this.props
     if (!isOpen) return null
 
-    const body = comments.length ? (
-      <ul ref={this.setListRef}>
-        {comments.map((comment) => (
-          <li key={comment.id}>
-            <Comment comment={comment} />
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <h3>No comments yet</h3>
-    )
+    const body =
+      comments && comments.length ? (
+        <ul ref={this.setListRef}>
+          {comments.map((comment) => (
+            <li key={comment.id}>
+              <Comment comment={comment} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h3>No comments yet</h3>
+      )
 
-    return <div className="test--comment-list__container">{body}</div>
+    return <div className="test--comment-list__container_shown">{body}</div>
   }
 
   setListRef = (ref) => {
