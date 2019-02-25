@@ -10,19 +10,19 @@ class CommentList extends Component {
     toggleOpen: PropTypes.func
   }
 
-  /*
   static defaultProps = {
     comments: []
   }
-*/
 
   render() {
     const { isOpen, toggleOpen } = this.props
     const text = isOpen ? 'hide comments' : 'show comments'
     return (
       <div>
-        <button onClick={toggleOpen}>{text}</button>
-        {this.getBody()}
+        <button className="test--comment__btn" onClick={toggleOpen}>
+          {text}
+        </button>
+        {this.getBody(this.comments, isOpen)}
       </div>
     )
   }
@@ -43,18 +43,12 @@ class CommentList extends Component {
       <h3>No comments yet</h3>
     )
 
-    return <div>{body}</div>
+    return <div className="test--comment-list__container">{body}</div>
   }
 
   setListRef = (ref) => {
     this.list = ref
   }
 }
-/*
-
-CommentList.propTypes = {
-  comments: PropTypes.array
-}
-*/
 
 export default toggleOpen(CommentList)

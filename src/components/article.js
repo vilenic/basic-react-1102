@@ -3,12 +3,6 @@ import { findDOMNode } from 'react-dom'
 import CommentList from './comment-list'
 
 class Article extends Component {
-  /*
-    componentDidCatch(error) {
-        console.log('---', error)
-    }
-
-*/
   render() {
     const { article, isOpen, onBtnClick } = this.props
     return (
@@ -29,15 +23,9 @@ class Article extends Component {
     return (
       <section className="test--article__body">
         {article.text}
-        <CommentList comments={article.comments} ref={this.setCommentsRef} />
+        <CommentList comments={article.comments} />
       </section>
     )
-  }
-
-  setCommentsRef = (ref) => {
-    //      window.comments = ref
-    //    console.log('---', 'comments', ref)
-    //    console.log('---', 'comments DOM', findDOMNode(ref))
   }
 }
 

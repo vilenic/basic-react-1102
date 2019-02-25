@@ -12,6 +12,9 @@ function CommentList({ comments }) {
     </div>
   )
 }
+CommentList.propTypes = {
+  comments: PropTypes.array.isRequired
+}
 
 function getBody({ comments, isOpen }) {
   if (!isOpen) return null
@@ -29,6 +32,10 @@ function getBody({ comments, isOpen }) {
   )
 
   return <div>{body}</div>
+}
+getBody.propTypes = {
+  comments: PropTypes.array,
+  isOpen: PropTypes.bool
 }
 
 export default CommentList
